@@ -6,7 +6,7 @@ module Queries
 
     def ready?(**args)
       if !context[:current_user]
-        raise GraphQL::ExecutionError, "Unauthenticated!"
+        raise GraphQL::ExecutionError, "Authentication Required!"
       else
         true
       end

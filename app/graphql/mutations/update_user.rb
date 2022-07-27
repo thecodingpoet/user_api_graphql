@@ -9,7 +9,9 @@ class Mutations::UpdateUser < Mutations::BaseMutation
   type Types::UserType
 
   def ready?(**args)
-    if context[:current_user]&.id != args[:id].to_i
+    if !context[:current_user]
+      raise GraphQL::ExecutionError, "Authentication Required!"
+    elsif context[:current_user].id != args[:id].to_i
       raise GraphQL::ExecutionError, "Unauthorized!"
     else
       true

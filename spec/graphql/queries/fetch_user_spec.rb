@@ -15,7 +15,7 @@ RSpec.describe Queries::FetchUser, type: :graphql do
 
       expect {
         ready?(id: user.id, email: "new_email@hey.com")
-      }.to raise_error(GraphQL::ExecutionError, "Unauthenticated!")
+      }.to raise_error(GraphQL::ExecutionError, "Authentication Required!")
     end
   end
 

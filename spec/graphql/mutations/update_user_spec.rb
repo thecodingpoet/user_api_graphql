@@ -15,7 +15,7 @@ RSpec.describe Mutations::UpdateUser, type: :graphql do
 
       expect {
         ready?(id: user.id, email: "new_email@hey.com")
-      }.to raise_error(GraphQL::ExecutionError, "Unauthorized!")
+      }.to raise_error(GraphQL::ExecutionError, "Authentication Required!")
     end
 
     it 'raises an error when unauthorized' do
