@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/faker-ruby/faker.git
+  revision: b98d32dcca8aa482525320d8463dff741af0d84d
+  branch: master
+  specs:
+    faker (2.21.0)
+      i18n (>= 1.8.11, < 2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -64,7 +72,16 @@ GEM
     concurrent-ruby (1.1.10)
     crass (1.0.6)
     diff-lcs (1.5.0)
+    dotenv (2.7.6)
+    dotenv-rails (2.7.6)
+      dotenv (= 2.7.6)
+      railties (>= 3.2)
     erubi (1.10.0)
+    factory_bot (6.2.1)
+      activesupport (>= 5.0.0)
+    factory_bot_rails (6.2.0)
+      factory_bot (~> 6.2.0)
+      railties (>= 5.0.0)
     ffi (1.15.5)
     globalid (1.0.0)
       activesupport (>= 5.0)
@@ -146,6 +163,8 @@ GEM
       rspec-mocks (~> 3.10)
       rspec-support (~> 3.10)
     rspec-support (3.11.0)
+    shoulda-matchers (5.1.0)
+      activesupport (>= 5.2.0)
     spring (2.1.1)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
@@ -174,6 +193,9 @@ DEPENDENCIES
   bcrypt (~> 3.1.11)
   bootsnap (>= 1.4.2)
   byebug
+  dotenv-rails
+  factory_bot_rails
+  faker!
   graphiql-rails
   graphql (~> 2.0)
   jwt
@@ -181,6 +203,7 @@ DEPENDENCIES
   puma (~> 4.1)
   rails (~> 6.0.4, >= 6.0.4.6)
   rspec-rails
+  shoulda-matchers (~> 5.0)
   spring
   spring-watcher-listen (~> 2.0.0)
   sqlite3 (~> 1.4)

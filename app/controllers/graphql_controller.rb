@@ -9,8 +9,7 @@ class GraphqlController < ApplicationController
     query = params[:query]
     operation_name = params[:operationName]
     context = {
-      # Query context goes here, for example:
-      # current_user: current_user,
+      current_user: current_user,
     }
     result = UserApiSchema.execute(query, variables: variables, context: context, operation_name: operation_name)
     render json: result
@@ -20,6 +19,15 @@ class GraphqlController < ApplicationController
   end
 
   private
+
+  def current_user
+    return nil if request.headers['Authorization'].blank?
+    token = request.headers['Authorization'].split(' ').last
+    return nil if token.blank?
+
+    user_id = AuthToken.verify(token)[:user_id]
+    User.find(user_id)
+  end
 
   # Handle variables in form data, JSON body, or a blank value
   def prepare_variables(variables_param)
